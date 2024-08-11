@@ -1,0 +1,59 @@
+version: "3.1"
+
+
+intents:
+  - order_grocery
+  - specify_item
+  - confirm_order
+  - cancel_order
+  - track_order
+
+entities:
+  - item
+  - quantity
+
+slots:
+  item:
+    type: text
+    mappings:
+      - basmati rice
+      - ghee
+      - atta flour
+      - moong dal
+      - chana masala
+  quantity:
+    type: text
+    mappings:
+      - 1 kg
+      - 2 kg
+      - 500 gm
+      - 1 liter
+
+actions:
+  - utter_grocery_options
+  - utter_confirm_item
+  - utter_order_confirmed
+  - utter_cancel_order
+  - utter_track_order
+  - action_add_item_to_order
+  - action_cancel_order
+  - action_track_order
+
+forms:
+  - order_grocery_form
+
+responses:
+  utter_grocery_options:
+    - text: What type of grocery item would you like to order? (e.g. rice, flour, spices)
+  utter_confirm_item:
+    - text: You want to order {item} ({quantity}). Is that correct?
+  utter_order_confirmed:
+    - text: Your order for {item} ({quantity}) has been confirmed. We will deliver it to your doorstep.
+  utter_cancel_order:
+    - text: Your order has been cancelled.
+  utter_track_order:
+    - text: Your order is on its way. It will be delivered to your doorstep soon.
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
