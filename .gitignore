@@ -1,0 +1,8 @@
+/actions
+/config.yml
+/data
+/domain.yml
+/endpoints.yml
+/models
+/rasa_bot
+/requirements.txt
